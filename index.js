@@ -3,11 +3,15 @@ var port = 8000;
 
 const app = express();
 
-app.get('/',function(req, res){
-    console.log('gotcha');
+//set up the view engine
+app.set('view engine', 'ejs');
+app.set('views','./views');
 
-    return res.end('Gotcha');
-});
+//middleware     
+app.use(express.urlencoded());
+
+app.use('/', require('./routes'));
+
 
 app.listen(port,function(err){
     if(err){
