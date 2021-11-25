@@ -3,6 +3,16 @@ var port = 8000;
 const cookieParser = require('cookie-parser');
 const app = express();
 
+//layouts
+const expressLayouts = require('express-ejs-layouts');
+app.use(expressLayouts);
+
+//extract style and scripts from subpages into the layout
+app.set('layout extractStyles', true);
+app.set('layout extractScripts', true);
+
+
+
 const db = require('./config/mongoose');
 
 //used for session cookie
@@ -19,7 +29,7 @@ app.set('views','./views');
 
 //middleware     
 app.use(express.urlencoded());
-app.use(express.static('assets'));
+app.use(express.static('./assets'));
 
 //middleware -> helps in creating the session and encrypts the userid into the cookie.
 app.use(session({
