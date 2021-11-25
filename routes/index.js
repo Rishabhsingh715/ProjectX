@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const passport = require('passport');
+
 const signupController = require('../controllers/home');
 const signinController = require('../controllers/home');
 const profileController = require('../controllers/home');
@@ -13,9 +14,12 @@ console.log('router loaded');
 router.get('/',signupController.signup);
 
 router.get('/sign-in',signinController.signin);
-router.get('/profile',profileController.profile);
+
+router.get('/profile', passport.checkAuthentication ,profileController.profile);
 
 router.post('/create',createController.create);
+
+router.get('/sign-out',createController.signout);
 
 //use passport as a middleware to authenticate 
 router.post('/create-session',passport.authenticate(

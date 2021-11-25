@@ -1,10 +1,9 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/home.css">
 </head>
 <body>
     
@@ -12,14 +11,29 @@
      <h1>Sign-up page</h1>
  </div>
 
- <section>
-
+ <section id="main">
+    <h3>Enter the details</h3>
     <form action="/create" method="POST">
+        <p>Email address:
         <input type="text" name="email" placeholder="enter email">
+        </p>
+
+        <p>Set a password:
         <input type="password" name="password" placeholder="enter password">
+        </p>
+
+        <p>Confirm password:
         <input type="password" name="confirm_password" placeholder="re-enter password">
+         </p>
+
+        <p>Enter name here:
         <input type="text" name="name" placeholder="Enter name here">
+        </p>
+
+        <p>Enter profession:
         <input type="text" name="profession" placeholder="Enter the profession">
+        </p>
+
         <input type="submit">
         
     </form>

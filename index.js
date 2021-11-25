@@ -16,6 +16,7 @@ app.set('views','./views');
 
 //middleware     
 app.use(express.urlencoded());
+app.use(express.static('assets'));
 
 //middleware -> helps in creating the session and encrypts the userid into the cookie.
 app.use(session({

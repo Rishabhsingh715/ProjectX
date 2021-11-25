@@ -3,6 +3,10 @@ const User = require('../models/user')
 
 module.exports.signup = function(req, res){
 
+    if(req.isAuthenticated()){
+        return res.redirect('/profile');
+    }
+
     return res.render('sign_up');
 }
 
@@ -54,4 +58,10 @@ module.exports.signin = function(req,res){
 module.exports.profile = function(req, res){
 
     return res.render('profile');
+}
+
+module.exports.signout = function(req, res){
+    req.logout();
+
+    return res.redirect('/sign-in');
 }
