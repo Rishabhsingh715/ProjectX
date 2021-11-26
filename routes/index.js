@@ -23,11 +23,16 @@ router.get('/sign-out',createController.signout);
 
 router.get('/backtosignup',profileController.backtosignup);
 
+router.get('/home',profileController.home);
+
+
+
 //use passport as a middleware to authenticate 
 router.post('/create-session',passport.authenticate(
     'local',
     {failureRedirect: '/sign-in'},
 ),createController.createSession);
 
+router.use('/posts', require('./posts'));
 
 module.exports = router;

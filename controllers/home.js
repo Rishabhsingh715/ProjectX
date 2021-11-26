@@ -26,7 +26,7 @@ module.exports.create = function(req,res){
                 return res.redirect('/sign-in');
             })
         }else{
-            console.log('user created bro!!')
+            console.log('user created bro!!');
             return res.redirect('/sign-in');
 
         }
@@ -70,4 +70,9 @@ module.exports.backtosignup = function(req, res){
     req.logout();
 
     return res.redirect('/');
+}
+
+module.exports.home = function(req,res){
+    
+    return res.render('home');
 }
