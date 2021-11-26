@@ -21,6 +21,8 @@ router.post('/create',createController.create);
 
 router.get('/sign-out',createController.signout);
 
+router.get('/backtosignup',profileController.backtosignup);
+
 //use passport as a middleware to authenticate 
 router.post('/create-session',passport.authenticate(
     'local',

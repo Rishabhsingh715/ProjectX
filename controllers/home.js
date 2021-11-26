@@ -65,3 +65,9 @@ module.exports.signout = function(req, res){
 
     return res.redirect('/sign-in');
 }
+
+module.exports.backtosignup = function(req, res){
+    req.logout();
+
+    return res.redirect('/');
+}
