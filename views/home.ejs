@@ -7,4 +7,15 @@
         <input type="submit" value="Post">
         
     </form>
+
+
+    <div>
+    <% for(var post of posts){ %>
+
+        <p><%= post.user.name%></p>
+        <p><%= post.content%></p>
+
+        <%}%>
+    </div>
+
 </section>

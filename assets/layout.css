@@ -3,6 +3,7 @@
     flex-direction: row;
     background-color: #c58010e7;
     justify-content: start;
+    margin-left: 2rem;
 }
 
 h2{
@@ -11,10 +12,13 @@ h2{
     color: rgba(83, 80, 255, 0.411);
 }
 
+
 div{
+    display: flex;
+    flex-direction: row;
     text-align: center;
     font-family: cursive;
     font-weight: bold;
-    margin-left: 30%;
     justify-content: center;
+    
 }
