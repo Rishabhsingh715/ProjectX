@@ -1,18 +1,31 @@
 body{
-    background-color: burlywood;
+    background-color: #493448;
 }
 
-
-#main{
-    background-color: cadetblue;
-    margin: 4rem;
-    padding: 4rem;
+#feed-posts{
+    background-color: darkgray;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 4px solid blueviolet;
 }
 
-#main p{
+#post-container{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 5%;
+    border: 4px solid blueviolet;
+    background-color: rgba(128, 128, 128, 0.733);
+    border-radius: 5%;
+}
+#box{
+    background-color: black;
+    color: white
     
-    font-family: cursive;
-    
-    display: inline-block;
-    padding: 1rem;
+}
+
+#posts{
+    margin: 2rem;
+    border: 2px solid rgb(140, 20, 220);
+    border-radius: 5%;
+
 }

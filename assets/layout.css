@@ -3,7 +3,14 @@
     flex-direction: row;
     background-color: #c58010e7;
     justify-content: start;
+}
+
+#sec div{
+    display: flex;
+    flex-direction: row;
     margin-left: 2rem;
+    
+   
 }
 
 h2{
@@ -14,11 +21,7 @@ h2{
 
 
 div{
-    display: flex;
     
-    text-align: center;
     font-family: cursive;
     font-weight: bold;
-    justify-content: center;
-    
 }

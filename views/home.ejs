@@ -1,24 +1,29 @@
 
+<link rel="stylesheet" type="text/css" href="/home.css">
+
 <section id="feed-posts">
     <h4>Posts</h4>
 
     <% if(locals.user){ %>
-    <form action="/posts/create" id="new-post-form" method="POST">   
-        <textarea name="content" cols="30" rows="3"></textarea>
-        <input type="submit" value="Post">
+    <form  action="/posts/create" id="new-post-form" method="POST">   
+        <textarea id="box" name="content" cols="30" rows="3"></textarea>
+        <input  type="submit" value="Make the post">
         
     </form>
 
     <% } %>
 
+</section>
 
-    <div>
+<div id="post-container">
+    
     <% for(var post of posts){ %>
 
-        <p><%= post.user.name%></p>
-        <p><%= post.content%></p>
+        <div id="posts">
+           <p>Post by <%= post.user.name%></p>
+           <p><%= post.content%></p>
+        </div>
 
         <%}%>
-    </div>
-
-</section>
+    
+</div>

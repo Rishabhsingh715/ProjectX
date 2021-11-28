@@ -1,0 +1,18 @@
+body{
+    background-color: burlywood;
+}
+
+
+#main{
+    background-color: cadetblue;
+    margin: 4rem;
+    padding: 4rem;
+}
+
+#main p{
+    
+    font-family: cursive;
+    
+    display: inline-block;
+    padding: 1rem;
+}
