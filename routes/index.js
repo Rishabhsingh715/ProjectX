@@ -34,5 +34,6 @@ router.post('/create-session',passport.authenticate(
 ),createController.createSession);
 
 router.use('/posts', require('./posts'));
+router.use('/comments',require('./comments'));
 
 module.exports = router;
