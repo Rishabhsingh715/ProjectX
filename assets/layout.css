@@ -1,7 +1,7 @@
 #sec{
     display: flex;
     flex-direction: row;
-    background-color: #c58010e7;
+    background-color: #c58c10e7;
     justify-content: start;
 }
 
@@ -16,7 +16,7 @@
 h2{
     font-family: cursive;
     text-align: center;
-    color: rgba(83, 80, 255, 0.411);
+    color: rgba(228, 18, 63, 0.719);
 }
 
 

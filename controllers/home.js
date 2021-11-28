@@ -23,11 +23,11 @@ module.exports.create = function(req,res){
         if(!user){
             User.create(req.body, function(err, user){
                 if(err){console.log('error in creating user while signing up'); return}
-                console.log('i ran user created');
+                
                 return res.redirect('/sign-in');
             })
         }else{
-            console.log('user created bro!!');
+            
             return res.redirect('/sign-in');
 
         }
@@ -76,7 +76,15 @@ module.exports.backtosignup = function(req, res){
 module.exports.home = function(req,res){
 
     
-    Post.find({}).populate('user').exec(function(err,posts){
+    Post.find({})
+    .populate('user')
+    .populate({
+        path: 'comments',
+        populate: {
+            path: 'user'
+        }
+    })
+     .exec(function(err,posts){
         return res.render('home',{
             title: "Sociolo",
             posts: posts,

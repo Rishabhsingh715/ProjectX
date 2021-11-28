@@ -17,15 +17,20 @@ body{
     background-color: rgba(128, 128, 128, 0.733);
     border-radius: 5%;
 }
-#box{
+.dodo{
     background-color: black;
-    color: white
+    color: white;
+    width: 80%;
     
 }
 
 #posts{
     margin: 2rem;
-    border: 2px solid rgb(140, 20, 220);
-    border-radius: 5%;
+    border-bottom: 18px solid rgb(140, 20, 220);
+    
 
+}
+.post-comments-list{
+    border: 4px solid #00b7ff73;
+    border-radius: 5%;
 }
