@@ -75,17 +75,17 @@ module.exports.backtosignup = function(req, res){
 
 module.exports.home = function(req,res){
 
-    
     Post.find({})
-    .populate('user')
+    .populate('user')         //Whenever in the schema of one collection we provide a reference  (in any field) to a document from any other collection, we need a populate() method to fill the field with that document.
     .populate({
         path: 'comments',
         populate: {
             path: 'user'
         }
     })
-     .exec(function(err,posts){
-        return res.render('home',{
+     .exec(function(err,posts){           //if we don't specify the callback function at the time of query,
+                                          //then we use exec function to execute the result later.
+            return res.render('home',{
             title: "Sociolo",
             posts: posts,
             
