@@ -15,7 +15,7 @@ router.get('/',signupController.signup);
 
 router.get('/sign-in',signinController.signin);
 
-router.get('/profile', passport.checkAuthentication ,profileController.profile);
+router.get('/profile/:id', passport.checkAuthentication ,profileController.profile);
 
 router.post('/create',createController.create);
 

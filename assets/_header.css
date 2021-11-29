@@ -1,0 +1,27 @@
+#sec{
+    display: flex;
+    flex-direction: row;
+    background-color: #c58c10e7;
+    justify-content: start;
+}
+
+#sec div{
+    display: flex;
+    flex-direction: row;
+    margin-left: 2rem;
+    
+   
+}
+
+h2{
+    font-family: cursive;
+    text-align: center;
+    color: rgba(228, 18, 63, 0.719);
+}
+
+
+div{
+    
+    font-family: cursive;
+    font-weight: bold;
+}

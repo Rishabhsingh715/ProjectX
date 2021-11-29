@@ -1,10 +1,11 @@
 
-<html>
-<head>
-    <link rel="stylesheet" href="/signing.css">
-</head>
 
-<body>
+
+    <title>title</title>
+    <link rel="stylesheet" href="/signing.css">
+
+
+
 
     <div>
 <h2>profile-page</h2>
@@ -12,14 +13,12 @@
 
 
 <section id="main">
-<p>Name: <%=user.name %></p>
- <p>Email: <%=user.email%></p>
- <p>Profession: <%=user.profession%></p>
+<p>Name: <%= profile_user.name %></p>
+ <p>Email: <%= profile_user.email%></p>
+ <p>Profession: <%= profile_user.profession%></p>
 
  <a href="/sign-out">Sign Out</a>
 </section>
 
 
 
-</body>
-</html>

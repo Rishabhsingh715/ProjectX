@@ -5,7 +5,7 @@ const Post= require('../models/post');
 module.exports.signup = function(req, res){
 
     if(req.isAuthenticated()){
-        return res.redirect('/profile');
+        return res.redirect('/sign-in');
     }
 
     return res.render('sign_up');
@@ -37,10 +37,12 @@ module.exports.create = function(req,res){
 
 //sign in and create a session for the user.
 module.exports.createSession = function(req,res){
+
     return res.redirect('/sign-in');
 }
 
 module.exports.destroySession = function(req, res){
+    
     req.logout();
     return res.redirect('/sign-in');
 }
@@ -49,7 +51,11 @@ module.exports.destroySession = function(req, res){
 module.exports.signin = function(req,res){
 
     if(req.isAuthenticated()){
-        return res.redirect('/profile');
+        return res.render('profile',{
+            title: 'User-profile',
+            profile_user: req.user
+
+        });
     }
 
     return res.render('sign-in');
@@ -57,11 +63,17 @@ module.exports.signin = function(req,res){
 
 
 module.exports.profile = function(req, res){
-
-    return res.render('profile');
+    
+    User.findById(req.params.id, function(err, user){
+        return res.render('profile',{
+        title: 'User-profile',
+        profile_user: user});
+    });
+    
 }
 
 module.exports.signout = function(req, res){
+    
     req.logout();
 
     return res.redirect('/sign-in');
@@ -74,7 +86,7 @@ module.exports.backtosignup = function(req, res){
 }
 
 module.exports.home = function(req,res){
-
+    console.log("The user is-",req.user._id);
     Post.find({})
     .populate('user')         //Whenever in the schema of one collection we provide a reference  (in any field) to a document from any other collection, we need a populate() method to fill the field with that document.
     .populate({
@@ -83,11 +95,16 @@ module.exports.home = function(req,res){
             path: 'user'
         }
     })
-     .exec(function(err,posts){           //if we don't specify the callback function at the time of query,
-                                          //then we use exec function to execute the result later.
-            return res.render('home',{
-            title: "Sociolo",
-            posts: posts,
+     .exec(function(err,posts){           //if we don't specify the callback function at the time of query,then we use exec function to execute the result later.
+                  
+            User.find({}, function(err, users){
+
+                return res.render('home',{
+                    title: "Sociolo",
+                    posts: posts,
+                    all_users: users
+            })
+            
             
         });
     });
