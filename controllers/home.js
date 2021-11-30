@@ -72,6 +72,17 @@ module.exports.profile = function(req, res){
     
 }
 
+module.exports.showw = function(req , res){
+    
+    res.redirect('/sign-in');
+}
+
+module.exports.udpate = function(req, res){
+    User.findByIdAndUpdate(req.user, req.body, function(err,user){
+        return res.redirect('back');
+    });
+}
+
 module.exports.signout = function(req, res){
     
     req.logout();
@@ -86,7 +97,7 @@ module.exports.backtosignup = function(req, res){
 }
 
 module.exports.home = function(req,res){
-    console.log("The user is-",req.user._id);
+    
     Post.find({})
     .populate('user')         //Whenever in the schema of one collection we provide a reference  (in any field) to a document from any other collection, we need a populate() method to fill the field with that document.
     .populate({

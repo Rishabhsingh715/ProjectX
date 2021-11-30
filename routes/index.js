@@ -25,6 +25,10 @@ router.get('/backtosignup',profileController.backtosignup);
 
 router.get('/home',profileController.home);
 
+router.post('/update', profileController.udpate);
+
+router.get('/showw',profileController.showw);
+
 
 
 //use passport as a middleware to authenticate 

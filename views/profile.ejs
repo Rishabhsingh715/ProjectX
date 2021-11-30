@@ -16,6 +16,20 @@
 <p>Name: <%= profile_user.name %></p>
  <p>Email: <%= profile_user.email%></p>
  <p>Profession: <%= profile_user.profession%></p>
+ <br>
+
+
+
+ <% if(user.name == profile_user.name){ %>
+    <p>Need to edit?</p>
+    <form action="/update" method="post">
+        <input type="text" name="name" class="dodo" placeholder="enter name here">
+        <input type="email" name="email" class="dodo" placeholder="enter email here">
+        <input type="submit" class="dodo" value="Submit">
+    </form>
+
+    
+ <%}%>
 
  <a href="/sign-out">Sign Out</a>
 </section>
