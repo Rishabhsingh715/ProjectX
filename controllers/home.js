@@ -38,12 +38,15 @@ module.exports.create = function(req,res){
 //sign in and create a session for the user.
 module.exports.createSession = function(req,res){
 
+    req.flash('success', 'logged in successfully');
     return res.redirect('/sign-in');
 }
 
 module.exports.destroySession = function(req, res){
     
     req.logout();
+    req.flash('success', 'logged out successfully');
+
     return res.redirect('/sign-in');
 }
 
@@ -114,8 +117,9 @@ module.exports.home = async function(req,res){
             title: "Sociolo",
             posts: posts,
             all_users: users });
-            
+
   } catch (error) {
       console.log("Error in home controller: ",error);
+      return;
   }
 }
