@@ -58,6 +58,13 @@ app.use(passport.setAuthenticatedUser);
 app.use(flash());
 app.use(customMware.setFlash);
 
+// This is just an example of another middelware function here to show that if we don't have any route attached
+// to the middleware function then it is going to load for every request.
+// app.use(function(req,res,next){
+//     console.log('i am super cool');
+//     next();
+// })
+
 app.use('/', require('./routes'));
 
 

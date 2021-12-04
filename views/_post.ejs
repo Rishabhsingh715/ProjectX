@@ -2,12 +2,14 @@
     
     <% for(var post of posts){ %>
 
-        <div id="posts">
+    <div id="posts post-<%= post._id%>">
            <h1>Post by <%= post.user.name%></h1>
+           <small>Last updated at - <%= post.updatedAt.toString().substring(0,21)  %> </small>
            <p><%= post.content%></p>
+           
       <% if(locals.user && locals.user.id == post.user.id){ %>
            <small>
-               <a href="/posts/destroy/<%= post.id%>">Delete-Post</a>
+               <a class="delete-post-button" href="/posts/destroy/<%= post.id%>">Delete-Post</a>
            </small>
 
            <%}%>
@@ -36,9 +38,6 @@
                     
                             <%-include('_comment')-%>
                             <%}%>
-                      
-                           
-                   
                  </ul>
         
              </div>

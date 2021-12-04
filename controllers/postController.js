@@ -8,8 +8,17 @@ module.exports.create = async function(req , res){
             content: req.body.content,
             user: req.user._id
         });
+
+        if(req.xhr){
+            return res.status(200).json({
+                data: {
+                    post: post
+                },
+                message: 'post created!!'
+            });
+        }
     
-        return res.redirect('back');
+        return res.redirect('/sign-in');
     } catch (error) {
         console.log('Error in post controller.create', error);
         return;
