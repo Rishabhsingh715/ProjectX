@@ -14,7 +14,9 @@ module.exports.create = function(req, res){
                 post.comments.push(comment);
                 post.save();
                 
-                res.redirect('/home');
+
+                // $('#post._id').append('<li><a href="#">New list item</a></li>');
+                
             });
         }
         else{

@@ -1,6 +1,6 @@
 {
     
-
+// in this whole we are using ajax with jquery i.e. jquery ajax to make dynamic webpages.
     let createPost = function(){
         let newPostForm = $('#new-post-form');
         

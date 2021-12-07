@@ -32,6 +32,8 @@ app.set('views','./views');
 //middleware     
 app.use(express.urlencoded());
 app.use(express.static('./assets'));
+//makes the upload path available to the browser.
+app.use('/uploads',express.static(__dirname+'/uploads'));
 
 //middleware -> helps in creating the session and encrypts the userid into the cookie.
 app.use(session({

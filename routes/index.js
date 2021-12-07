@@ -25,7 +25,7 @@ router.get('/backtosignup',profileController.backtosignup);
 
 router.get('/home',profileController.home);
 
-router.post('/update', profileController.udpate);
+router.post('/update/:id', profileController.udpate);
 
 router.get('/showw',profileController.showw);
 

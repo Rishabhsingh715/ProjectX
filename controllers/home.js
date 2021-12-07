@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const Post= require('../models/post');
-
+const fs = require('fs');
+const path = require('path');
 
 module.exports.signup = function(req, res){
 
@@ -80,10 +81,35 @@ module.exports.showw = function(req , res){
     res.redirect('/sign-in');
 }
 
-module.exports.udpate = function(req, res){
-    User.findByIdAndUpdate(req.user, req.body, function(err,user){
+module.exports.udpate = async function(req, res){
+   if(req.user.id = req.params.id){
+
+    try{
+        let user = await User.findById(req.params.id);
+        User.uploadedAvatar(req, res, function(err){     //passing the request object to multer, it would handle other things. File and creation and all.
+            if(err) {console.log('**multer error',err)}
+
+            user.name = req.body.name;
+            user.email = req.body.email;
+
+            //will do it later....
+            // if(user.avatar){
+            //     fs.unlinkSync(path.join(__dirname, '..', user.avatar));
+            // }
+
+            if(req.file){
+                // saving the string path into the DB;
+                user.avatar = User.avatarPath + '/' + req.file.filename;
+            }
+            user.save();
+            return res.redirect('back');
+
+        }); 
+    }catch(err){
+        req.flash('error', err);
         return res.redirect('back');
-    });
+    }   
+   }
 }
 
 module.exports.signout = function(req, res){

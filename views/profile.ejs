@@ -11,6 +11,9 @@
 <h2>profile-page</h2>
 </div>
 
+<div>
+<img src="<%= profile_user.avatar%>" alt="<%= profile_user.name%>">
+</div>
 
 <section id="main">
 <p>Name: <%= profile_user.name %></p>
@@ -22,10 +25,12 @@
 
  <% if(user.name == profile_user.name){ %>
     <p>Need to edit?</p>
-    <form action="/update" method="post">
-        <input type="text" name="name" class="dodo" placeholder="enter name here">
-        <input type="email" name="email" class="dodo" placeholder="enter email here">
-        <input type="submit" class="dodo" value="Submit">
+    <form action="/update/<%= profile_user._id%>" enctype="multipart/form-data" method="post">
+        <input type="text" name="name" class="dodo" placeholder="enter name here" >
+        <input type="email" name="email" class="dodo" placeholder="enter email here" >
+
+        <input type="file" name="avatar" placeholder="Your profile pic">
+        <input type="submit" class="dodo" value="Update">
     </form>
 
     
