@@ -29,6 +29,7 @@ router.post('/update/:id', profileController.udpate);
 
 router.get('/showw',profileController.showw);
 
+
 router.use('/api', require('./api'));
 
 //use passport as a middleware to authenticate 
@@ -39,5 +40,8 @@ router.post('/create-session',passport.authenticate(
 
 router.use('/posts', require('./posts'));
 router.use('/comments',require('./comments'));
+router.use('/users', require('./users'));
+
+
 
 module.exports = router;
