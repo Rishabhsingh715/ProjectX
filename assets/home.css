@@ -79,3 +79,14 @@ body{
    border: 4px solid rgba(131, 38, 38, 0.609);
    border-radius: 5%;
 }
+
+
+#user-chat-box{
+    border: 2px dotted blue;
+    border-radius: 5%;
+    position: fixed;
+    bottom: 0;
+    width: 20%;
+    right: 0;
+    background-color: tomato;
+}
